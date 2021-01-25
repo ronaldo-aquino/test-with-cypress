@@ -1,3 +1,1 @@
-const { it } = require("mocha");
-
-it("nada agora", () => {})
+it("Nada Aquin", () => {});
