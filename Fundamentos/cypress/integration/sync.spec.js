@@ -27,7 +27,7 @@ describe("", () => {
       .type("funciona");
   });
 
-  it.only("Uso do find", () => {
+  it("Uso do find", () => {
     cy.get("#buttonListDOM").click();
     cy.get("#lista li").find("span").should("contain", "Item 1");
 
@@ -36,5 +36,18 @@ describe("", () => {
     //   .should("contain", "Item 2");
 
     cy.get("#lista li span").should("contain", "Item 2");
+  });
+
+  it.only("Uso do timeout", () => {
+    // cy.get("#buttonDelay").click();
+    // cy.get("#novoCampo").should("exist");
+
+    // cy.get("#buttonListDOM").click();
+    // cy.get("#lista li span", {timeout: 30000}).should("contain", "Item 2");
+
+    cy.get("#buttonDelay").click();
+    cy.get("#buttonListDOM").click();
+    cy.get("#lista li span").should("have.length", 1);
+    cy.get("#lista li span").should("have.length", 2);
   });
 });
