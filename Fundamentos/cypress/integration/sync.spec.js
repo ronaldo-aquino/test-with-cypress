@@ -51,7 +51,18 @@ describe("", () => {
     cy.get("#lista li span").should("have.length", 2);
   });
 
-  it.only("Click retry", () => {
+  it("Click retry", () => {
     cy.get("#buttonCount").click().click().should("have.value", "111");
+  });
+
+  it.only("Should vs then", () => {
+    cy.get("#buttonListDOM")
+      .then(($el) => {
+        // console.log($el);
+        expect($el).to.have.length(1);
+        cy.get("#buttonList");
+      })
+      // .and("eq", 2)
+      // .and("not.have.id", "buttonListDOM");
   });
 });
